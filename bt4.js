@@ -26,7 +26,7 @@ for (let i = 1; i <= dong; i++) {
     if (j < i) {
       row += j;
     } else {
-      space += '*';
+      space += '&nbsp;&nbsp;';
     }
   }
   document.write(space + row + i + '<br/>');
