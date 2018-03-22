@@ -18,16 +18,13 @@ for (let i = 1; i <= dong; i++) {
       full2 += i + j;
       switch (i + j - 1) {
         case 2:
-          space2 = ' ';
+          space2 = (i + j + 1)/2;
           break;
         case 4:
-          space2 = '   ';
+          space2 = ' ' + (i + j + 1)/2 + ' ';
           break;
         case 6:
-          space2 = '     ';
-          break;
-        case 8:
-          space2 = '       ';
+          space2 = '  ' + (i + j + 1)/2 + '  ';
           break;
       }
     } else {
@@ -51,10 +48,13 @@ for (let i = 1; i <= dong; i++) {
       row5 = space + full1 + i + full2;
     break;
   }
-  console.log(space + 1 + space2 + row12);
+  if (i === dong) {
+    console.log(row5);
+  } else {
+    console.log(space + 1 + space2 + row12);
+  }
 }
 console.log(row4);
 console.log(row3);
 console.log(row2);
 console.log(row1);
-console.log(row5);
