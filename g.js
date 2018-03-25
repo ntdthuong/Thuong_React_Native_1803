@@ -1,29 +1,11 @@
-// function Person(name) {
-//   this.name = name;
-//   this.sayHello = function() {
-//       console.log(`Xin chao toi la ${this.name}`);
-//   }
-// };
-
-class School {
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-class Person {
-  constructor(name, age, school) {
-    this.name = name;
-    this.age = age;
-    this.school = school;
-  }
-  sayHello() {
-    console.log(`Xin chao toi la ${this.name}, toi ${this.age} tuoi, hoc truong ${this.school.name}`);
-  }
-}
-
-const school = new School('Khoa Pham');
-const teo = new Person('Teo', 10, 1);
-const ti = new Person('Ti', 12, school);
-teo.sayHello();
-ti.sayHello();
+const arr = [1, 3, 5, 7, 2, 4, 6];
+const people = [
+  {name: 'Teo', age: 12, height: 100},
+  {name: 'Ti', age: 15, height: 90},
+  {name: 'Tung', age: 10, height: 105},
+  {name: 'Tuan', age: 13, height: 115}
+]
+console.log(arr.reduce((a,b) => a + b));
+// const arrAge = people.map(people => people.age);
+// console.log(arrAge.reduce((a,b) => a + b));
+console.log(people.reduce((a,b) => ({age: a.age + b.age})).age);

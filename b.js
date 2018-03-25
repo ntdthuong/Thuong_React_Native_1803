@@ -1,14 +1,11 @@
-// const a = console.log;
+const a = { name: 'Teo' };
+const b = { name: 'Teo' };
 
-// function getLog() {
-//     return console.log;
-//     // return '';
-// }
+const c = a;
+a.name = 'Ti';
+console.log(a === b);
+console.log(c);
 
-// getLog()(1);
-
-function doSth(fn) {
-    fn(1);
-}
-
-doSth(function (x) { console.log(x * 2) });
+const e = 5;
+const d = 5;
+console.log(e === d);

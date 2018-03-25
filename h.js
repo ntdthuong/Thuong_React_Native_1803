@@ -1,11 +1,18 @@
-class Point {
-  constructor(x,y) {
-    this.x = x;
-    this.y = y;
-  }
-  getDistance() {
-    return Math.sqrt(this.x*this.x + this.y*this.y);
+const person = {
+  name: 'teo',
+  school: {
+    name: 'x',
+    x: 2,
+    y: 4
   }
 }
-const p1 = new Point(1,1);
-console.log(p1.getDistance());
+
+const {name, x, y} = person.school;
+console.log(name);
+console.log(x);
+console.log(y);
+
+const a = 5;
+const b = 10;
+const point = {a, b};
+console.log(point);

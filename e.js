@@ -1,48 +1,30 @@
-function veHinh(n, checkPoint, tinhSoCot) {
-  for (let dong = 1; dong <= n; dong++) {
-      let str = '';
-      let soCot = tinhSoCot ? tinhSoCot(n) : n;
-      for (let cot = 1; cot <= soCot; cot++) {
-          const dk = checkPoint(dong, cot, n);
-          str += dk ? '*' : ' ';
-      }
-      console.log(str);
+const arr = [1, 3, 5, 7, 2, 4, 6];
+const people = [
+  {name: 'Teo', age: 12, height: 100},
+  {name: 'Ti', age: 15, height: 90},
+  {name: 'Tung', age: 10, height: 105},
+  {name: 'Tuan', age: 13, height: 115}
+]
+Array.prototype.myMap = function(fn) {
+  const output = [];
+  for (let index = 0; index < this.length; index++) {
+    const element = this[index];
+    output.push(fn(element));
+  }
+  return output;
+}
+// console.log(arr.myMap(x => x*x));
+// console.log(arr.map(x => 1));
+Array.prototype.myFind = function(fn) {
+  for (let index = 0; index < this.length; index++) {
+    const element = this[index];
+    if (fn(element)) return element;
   }
 }
-veHinh(9, (dong, cot) => dong >= cot);
-veHinh(9, (dong, cot, n) => dong + cot >= n + 1);
-veHinh(9, (dong, cot, n) => {
-  const tongQuangDuong = (n - 1) / 2;
-  const trungTam = (n + 1) / 2;
-  const quangDuongDoc = Math.abs(dong - trungTam);
-  const quangDuongNgang = Math.abs(cot - trungTam);
-  const dk = quangDuongDoc + quangDuongNgang <= tongQuangDuong;
-  return dk;
-});
-veHinh(9, (dong, cot, n) => {
-  const tongQuangDuong = (n - 1) / 2;
-  const trungTam = (n + 1) / 2;
-  const quangDuongDoc = Math.abs(dong - trungTam);
-  const quangDuongNgang = Math.abs(cot - trungTam);
-  const dkDuongVien = quangDuongDoc + quangDuongNgang === tongQuangDuong;
-  const dkTrucDoc = cot === trungTam;
-  const dkTrucNgang = dong === trungTam;
-  const dk = dkDuongVien || dkTrucDoc || dkTrucNgang;
-  return dk;
-});
-veHinh(9, (dong, cot, n) => {
-  const tongQuangDuong = (n - 1) / 2;
-  const trungTam = (n + 1) / 2;
-  const quangDuongDoc = Math.abs(dong - trungTam);
-  const quangDuongNgang = Math.abs(cot - trungTam);
-  const dk = quangDuongDoc + quangDuongNgang <= tongQuangDuong;
-  return dk;
-}, n => (n + 1) / 2);
-veHinh(9, (dong, cot, n) => {
-  const tongQuangDuong = n -1;
-  const trungTam = n;
-  const quangDuongDoc = Math.abs(dong - trungTam);
-  const quangDuongNgang = Math.abs(cot - trungTam);
-  const dk = quangDuongDoc + quangDuongNgang <= tongQuangDuong;
-  return dk;
-}, n => (n * 2) - 1);
+Array.prototype.myFindIndex = function(fn) {
+  for (let index = 0; index < this.length; index++) {
+    const element = this[index];
+    if (fn(element)) return index;
+  }
+}
+console.log(people.myFindIndex(person => person.height + person.age === 105));
