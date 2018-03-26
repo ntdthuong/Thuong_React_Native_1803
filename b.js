@@ -8,7 +8,7 @@
 // getLog()(1);
 
 function doSth(fn) {
-    fn(1);
+    fn(7);
 }
 
 doSth(function (x) { console.log(x * 2) });

@@ -13,3 +13,4 @@ person.name = 'Teo Nguyen';
 console.log(person);
 person.height = 100;
 console.log(person.school.name);
+console.log(person);

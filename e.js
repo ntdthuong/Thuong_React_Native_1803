@@ -1,12 +1,12 @@
 function veHinh(n, checkPoint, tinhSoCot) {
   for (let dong = 1; dong <= n; dong++) {
-      let str = '';
-      let soCot = tinhSoCot ? tinhSoCot(n) : n;
-      for (let cot = 1; cot <= soCot; cot++) {
-          const dk = checkPoint(dong, cot, n);
-          str += dk ? '*' : ' ';
-      }
-      console.log(str);
+    let str = '';
+    const soCot = tinhSoCot ? tinhSoCot(n) : n;
+    for (let cot = 1; cot <= soCot; cot++) {
+        const dk = checkPoint(dong, cot, n);
+        str += dk ? '*' : ' ';
+    }
+    console.log(str);
   }
 }
 veHinh(9, (dong, cot) => dong >= cot);
