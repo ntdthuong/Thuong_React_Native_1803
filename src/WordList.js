@@ -23,12 +23,14 @@ export class WordList extends Component {
         const { txtEn, txtVn, words } = this.state;
         const id = Math.round(Math.random() * 10000) + '';
         const word = { en: txtEn, vn: txtVn, id, isMemorized: false };
-        this.setState({
+        if (word.en !== '' && word.vn !== '') {
+          this.setState({
             words: [word, ...words],
             shouldShowForm: false,
             txtEn: '',
             txtVn: ''
-        });
+          });
+        }
     }
 
     removeWord(id) {
