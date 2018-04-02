@@ -28,7 +28,7 @@ export class WordList extends Component {
             shouldShowForm: false,
             txtEn: '',
             txtVn: ''
-        }); 
+        });
     }
 
     removeWord(id) {
@@ -45,6 +45,11 @@ export class WordList extends Component {
     }
 
     genListWord() {
+      const filterWords = this.state.words.filter((w) => {
+        if (this.state.filterMode === 'SHOW_ALL') return true;
+        if (this.state.filterMode === 'SHOW_FORGOT') return !w.isMemorized;
+        return w.isMemorized;
+      })
         const renderWord = word => (
             <div className="word" key={word.id}>
                 <div className="word-container">
@@ -69,7 +74,7 @@ export class WordList extends Component {
                 </div>
             </div>
         );
-        return this.state.words.map(renderWord);
+        return filterWords.map(renderWord);
     }
 
     toggleShouldShowForm() {

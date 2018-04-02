@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { WordList } from './WordList';
-import { MyInput } from './MyInput';
+// import { MyInput } from './MyInput';
 import './App.css';
 
 class App extends Component {
